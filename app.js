@@ -24,6 +24,11 @@ app.use(bodyParser.json({ limit: '50mb', extended: true }));
 // Enable Express to parse JSON bodies in requests
 app.use(express.json());
 
+// Define the root route of the server which sends back a response message
+app.get('/', (req, res) => {
+    res.send('Calorie Server is running!');
+});
+
 // Routes
 app.use('/users', userRoutes);
 app.use('/', calorieRoutes);
