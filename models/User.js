@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const AutoIncrementFactory = require('mongoose-sequence')(mongoose);
 const { DateTime } = require('luxon');
 
 const userSchema = new mongoose.Schema({
+    id: { type: String, required: true, unique: true },
     first_name: { type: String, required: true },
     last_name: { type: String, required: true },
     birthday: { type: Date, required: true },
@@ -16,8 +16,5 @@ userSchema.methods.toJSON = function() {
     }
     return obj;
 };
-
-// Apply the auto-increment plugin to userSchema
-userSchema.plugin(AutoIncrementFactory, { inc_field: 'id' });
 
 module.exports = mongoose.model('User', userSchema);

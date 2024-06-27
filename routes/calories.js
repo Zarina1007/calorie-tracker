@@ -1,5 +1,6 @@
 const express = require('express');
 const Calorie = require('../models/Calorie');
+const User = require('../models/User');
 const router = express.Router();
 
 /**
@@ -76,19 +77,24 @@ const router = express.Router();
  */
 router.post('/addcalories', async (req, res) => {
     const { user_id, year, month, day, description, category, amount } = req.body;
-    const newCalorie = new Calorie({
-        user_id,
-        year,
-        month,
-        day,
-        description,
-        category,
-        amount
-    });
 
     try {
+        // Check if the user exists
+        const userExists = await User.findOne({ id: user_id });
+        if (!userExists) {
+            return res.status(400).json({ error: "User not found." });
+        }
+        const newCalorie = new Calorie({
+            user_id,
+            year,
+            month,
+            day,
+            description,
+            category,
+            amount
+        });
         const savedCalorie = await newCalorie.save();
-        const responseCalorie = await Calorie.findById(savedCalorie._id).select('-__v -_id');
+        const responseCalorie = await Calorie.findById(savedCalorie._id).select('-__v -_id -id');
         res.send(responseCalorie);
     } catch (error) {
         res.status(500).send({ message: error.message });

@@ -17,15 +17,11 @@ async function seed() {
 
         const userData = [
             {
+                id: 123123,
                 first_name: 'moshe',
                 last_name: 'israeli',
                 birthday: new Date('1990-01-10')
             },
-            {
-                first_name: 'john',
-                last_name: 'doe',
-                birthday: new Date('1985-02-20')
-            }
         ];
 
         for (let user of userData) {
