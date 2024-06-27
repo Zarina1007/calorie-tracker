@@ -24,16 +24,16 @@ const router = express.Router();
  *               properties:
  *                 id:
  *                   type: integer
- *                   example: 1
+ *                   example: 123123
  *                 first_name:
  *                   type: string
- *                   example: John
+ *                   example: moshe
  *                 last_name:
  *                   type: string
- *                   example: Doe
+ *                   example: israeli
  *                 birthday:
  *                   type: string
- *                   example: January 01, 1990
+ *                   example: January 10th, 1990
  *       404:
  *         description: User not found
  *       500:

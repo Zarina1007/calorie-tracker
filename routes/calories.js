@@ -18,7 +18,7 @@ const router = express.Router();
  *               user_id:
  *                 type: integer
  *                 description: User ID who is logging the calories
- *                 example: 1
+ *                 example: 123123
  *               year:
  *                 type: integer
  *                 description: Year of the calorie entry
@@ -26,18 +26,18 @@ const router = express.Router();
  *               month:
  *                 type: integer
  *                 description: Month of the calorie entry
- *                 example: 5
+ *                 example: 6
  *               day:
  *                 type: integer
  *                 description: Day of the calorie entry
- *                 example: 5
+ *                 example: 26
  *               description:
  *                 type: string
  *                 description: Description of the calorie entry
- *                 example: "Lunch at restaurant"
+ *                 example: "Breakfast at home"
  *               category:
  *                 type: string
- *                 description: Category of the calorie entry (e.g., food, exercise)
+ *                 description: Category of the calorie entry (e.g., breakfast, lunch, dinner, other)
  *                 example: "breakfast"
  *               amount:
  *                 type: number
